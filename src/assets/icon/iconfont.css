@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "dataServerIcon"; /* Project id 3924147 */
+  src: url('iconfont.woff2?t=1677653056213') format('woff2'),
+       url('iconfont.woff?t=1677653056213') format('woff'),
+       url('iconfont.ttf?t=1677653056213') format('truetype');
+}
+
+.dataServerIcon {
+  font-family: "dataServerIcon" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.data-server-icon-wenjian:before {
+  content: "\e637";
+}
+
+.data-server-icon-database:before {
+  content: "\e940";
+}
+

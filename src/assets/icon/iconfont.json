@@ -1,0 +1,23 @@
+{
+  "id": "3924147",
+  "name": "data-server",
+  "font_family": "dataServerIcon",
+  "css_prefix_text": "data-server-icon-",
+  "description": "数据服务项目使用的icon",
+  "glyphs": [
+    {
+      "icon_id": "17654828",
+      "name": "文件",
+      "font_class": "wenjian",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    },
+    {
+      "icon_id": "18169761",
+      "name": "数据库,数据",
+      "font_class": "database",
+      "unicode": "e940",
+      "unicode_decimal": 59712
+    }
+  ]
+}
