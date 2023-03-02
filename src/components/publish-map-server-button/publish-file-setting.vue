@@ -29,13 +29,13 @@
             <a-form :form="form" :label-col="{ span: 2 }" :wrapper-col="{ span: 22 }" @submit="handleSubmit">
                 <a-form-item label="协议配置">
                     <div>
-                        <a-checkable-tag :checked="protocol.includes('WMS')">WMS</a-checkable-tag>
-                        <a-checkable-tag :checked="protocol.indexOf('WMTS')">WMTS</a-checkable-tag>
-                        <a-checkable-tag :checked="protocol.indexOf('WFS')">WFS</a-checkable-tag>
-                        <a-checkable-tag :checked="protocol.indexOf('TMS')">TMS</a-checkable-tag>
+                        <a-checkable-tag :checked="protocol.includes('WMS')" @change="checkProtocol('WMS')">WMS</a-checkable-tag>
+                        <a-checkable-tag :checked="protocol.includes('WMTS')" @change="checkProtocol('WMTS')">WMTS</a-checkable-tag>
+                        <a-checkable-tag :checked="protocol.includes('WFS')" @change="checkProtocol('WFS')">WFS</a-checkable-tag>
+                        <a-checkable-tag :checked="protocol.includes('TMS')" @change="checkProtocol('TMS')">TMS</a-checkable-tag>
                     </div>
                     <div>
-                        <a-checkbox :checked="autoSlice">自动切片</a-checkbox>
+                        <a-checkbox :checked="autoSlice" @change="autoSlice = !autoSlice">自动切片</a-checkbox>
                     </div>
                 </a-form-item>
                 <a-form-item label="符号配置">
@@ -138,6 +138,14 @@
         methods:{
             selectSymbol(symbol){
                 this.symbol = symbol.id
+            },
+            checkProtocol(protocol){
+                let _index = this.protocol.findIndex(_item => _item === protocol);
+                if(_index > -1){
+                    this.protocol.splice(_index, 1)
+                } else {
+                    this.protocol.push(protocol)
+                }
             }
         }
     }

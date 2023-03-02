@@ -6,6 +6,41 @@
   "description": "数据服务项目使用的icon",
   "glyphs": [
     {
+      "icon_id": "4485674",
+      "name": "眼睛",
+      "font_class": "yanjing",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "577357",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "e74b",
+      "unicode_decimal": 59211
+    },
+    {
+      "icon_id": "1106050",
+      "name": "暂停",
+      "font_class": "zanting",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "5961323",
+      "name": "运行",
+      "font_class": "yunhang",
+      "unicode": "ec61",
+      "unicode_decimal": 60513
+    },
+    {
+      "icon_id": "6337498",
+      "name": "编辑",
+      "font_class": "tianxie",
+      "unicode": "ec88",
+      "unicode_decimal": 60552
+    },
+    {
       "icon_id": "17654828",
       "name": "文件",
       "font_class": "wenjian",

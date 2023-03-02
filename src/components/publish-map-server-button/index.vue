@@ -23,6 +23,7 @@
 <script>
     import publishFileModal from './publish-file-modal.vue'
     export default {
+        name: 'DsPublishMapServerButton',
         components: {
             publishFileModal
         },

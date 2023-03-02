@@ -1,8 +1,8 @@
 @font-face {
   font-family: "dataServerIcon"; /* Project id 3924147 */
-  src: url('iconfont.woff2?t=1677653056213') format('woff2'),
-       url('iconfont.woff?t=1677653056213') format('woff'),
-       url('iconfont.ttf?t=1677653056213') format('truetype');
+  src: url('iconfont.woff2?t=1677764483578') format('woff2'),
+       url('iconfont.woff?t=1677764483578') format('woff'),
+       url('iconfont.ttf?t=1677764483578') format('truetype');
 }
 
 .dataServerIcon {
@@ -11,6 +11,26 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.data-server-icon-yanjing:before {
+  content: "\e600";
+}
+
+.data-server-icon-shanchu:before {
+  content: "\e74b";
+}
+
+.data-server-icon-zanting:before {
+  content: "\e605";
+}
+
+.data-server-icon-yunhang:before {
+  content: "\ec61";
+}
+
+.data-server-icon-tianxie:before {
+  content: "\ec88";
 }
 
 .data-server-icon-wenjian:before {
