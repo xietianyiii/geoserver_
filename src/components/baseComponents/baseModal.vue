@@ -1,17 +1,10 @@
 <template>
-    <a-modal class="cgs-ds-base-components-modal" :title="title" :visible="vis" :confirm-loading="confirmLoading"
+    <a-modal class="cgs-ds-base-components-modal" :title="title" :visible="vis"
         :width="width" @ok="handleOk" @cancel="handleCancel">
         <slot name="content"></slot>
         <template slot="footer">
             <slot name="footer">
-                <!-- <a-button key="back" @click="handleCancel">
-                    Return
-                </a-button>
-                <a-button key="submit" type="primary" :loading="loading" @click="handleOk">
-                    Submit
-                </a-button> -->
             </slot>
-
         </template>
     </a-modal>
 </template>

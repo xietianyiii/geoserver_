@@ -5,6 +5,9 @@
                 <div class="data-server-map-server-header-container">
                     <publish-map-server-button></publish-map-server-button>
                 </div>
+                <div class="data-server-map-server-content-container">
+                    <published-map-server-list></published-map-server-list>
+                </div>
             </div>
         </a-layout-content>
     </a-layout>
@@ -12,9 +15,11 @@
 
 <script>
     import publishMapServerButton from '@component/publish-map-server-button/index.vue'
+    import publishedMapServerList from '@component/published-map-server-list/index.vue'
     export default {
         components: {
-            publishMapServerButton
+            publishMapServerButton,
+            publishedMapServerList
         },
         data() {
             return {};
@@ -26,6 +31,12 @@
     .data-server-map-server-content {
         width: 100%;
         height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .data-server-map-server-content-container{
+        flex: 1;
+        margin-top: 16px
     }
 </style>
 

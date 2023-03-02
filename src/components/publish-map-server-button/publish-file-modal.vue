@@ -5,27 +5,59 @@
                 <div class="cgs-ds-publish-file-modal-step-container">
                     <a-steps :current="currentStep">
                         <a-step title="选择文件" />
-                        <a-step title="Waiting" description="This is a description." />
-                        <a-step>
-                            <template slot="title">
-                                Finished
-                            </template>
-                            <span slot="description">This is a description.</span>
-                        </a-step>
+                        <a-step title="发布配置" />
+                        <a-step title="完成" />
                     </a-steps>
                 </div>
-                <div></div>
+                <div class="cgs-ds-publish-file-modal-step-content">
+                    <div class="cgs-ds-publish-file-modal-step-0-content" v-if="currentStep===0">
+                        <a-upload-dragger name="file" accept=".zip" :fileList="fileList" :remove="handleUploadRemove"
+                            :before-upload="beforeUpload">
+                            <p class="ant-upload-drag-icon">
+                                <a-icon type="inbox" />
+                            </p>
+                            <p class="ant-upload-text">
+                                点击或将文件拖拽到当前区域
+                            </p>
+                            <p class="ant-upload-hint">
+                                支持.zip文件
+                            </p>
+                        </a-upload-dragger>
+                    </div>
+                    <div class="cgs-ds-publish-file-modal-step-1-content" v-else-if="currentStep===1">
+                        <publish-file-setting v-if="fileList.length === 1" :file="fileList[0]"></publish-file-setting>
+                    </div>
+                    <div class="cgs-ds-publish-file-modal-step-2-content" v-else>
+                        <div class="cgs-ds-publish-file-modal-step-success">
+                            <a-icon type="check-circle" style="font-size: 50px;" />
+                            <span>发布成功</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <template slot="footer"></template>
+        <template slot="footer">
+            <a-button type="primary" v-if="currentStep===0" @click="currentStep++" :disabled="fileList.length === 0">
+                下一步
+            </a-button>
+            <a-button type="primary" v-else-if="currentStep===1" @click="currentStep++">
+                发布
+            </a-button>
+            <a-button type="primary" v-else @click="closeModal">
+                关闭
+            </a-button>
+        </template>
     </base-modal>
 </template>
 
 <script>
     import baseModal from '@component/baseComponents/baseModal.vue'
+    import publishFileSetting from './publish-file-setting.vue'
+
     export default {
         components: {
-            baseModal
+            baseModal,
+            publishFileSetting
         },
         props: {
             title: {
@@ -41,23 +73,15 @@
             return {
                 vis: false,
                 currentStep: 0,
-                steps: [{
-                        title: 'First',
-                        content: 'First-content',
-                    },
-                    {
-                        title: 'Second',
-                        content: 'Second-content',
-                    },
-                    {
-                        title: 'Last',
-                        content: 'Last-content',
-                    }
-                ],
+                fileList: []
             }
         },
         watch: {
             visible(newVal) {
+                if(!newVal){
+                    this.currentStep = 0;
+                    this.fileList = []
+                }
                 this.vis = newVal
             }
         },
@@ -71,10 +95,32 @@
             prevStep() {
                 this.currentStep--;
             },
+            handleUploadRemove(file) {
+                this.fileList = []
+            },
+            beforeUpload(file) {
+                this.fileList = [file];
+                return false;
+            },
         }
     }
 </script>
 
 <style scoped>
+    .cgs-ds-publish-file-modal-step-content {
+        margin: 16px 0px;
+    }
 
+    .cgs-ds-publish-file-modal-step-success {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color:#87d068;
+    }
+
+    .cgs-ds-publish-file-modal-step-success>span {
+        font-size: 20px;
+        margin-top: 20px;
+    }
 </style>
