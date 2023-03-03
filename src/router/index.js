@@ -7,6 +7,8 @@ import {
 import Main from '@/views/main/index.vue'
 import Server from '@/views/server/index.vue'
 import MapServer from '@/views/server/mapServer/index.vue'
+import ModelServer from '@/views/server/modelServer/index.vue'
+import ObliquePhotographServer from '@/views/server/obliquePhotographServer/index.vue'
 
 Vue.use(VueRouter)
 
@@ -32,6 +34,14 @@ const routes = [{
         path: 'mapServer',
         name: 'mapServer',
         component: MapServer
+      },{
+        path: 'modelServer',
+        name: 'modelServer',
+        component: ModelServer
+      },{
+        path: 'obliquePhotographServer',
+        name: 'obliquePhotographServer',
+        component: ObliquePhotographServer
       }]
     }]
   }

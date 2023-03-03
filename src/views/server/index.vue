@@ -9,7 +9,7 @@
                             {{menu.label}}
                         </span>
                     </template>
-                    <a-menu-item v-for="sMenu in secondMenuConfig[menu.id]" :key="sMenu.id">{{sMenu.label}}
+                    <a-menu-item v-for="sMenu in secondMenuConfig[menu.id]" :key="sMenu.id" @click="toServer(sMenu)">{{sMenu.label}}
                     </a-menu-item>
                 </a-sub-menu>
             </a-menu>
@@ -44,6 +44,13 @@
                 }
             };
         },
+        methods:{
+            toServer(menuItem){
+                this.$router.push({
+                    name: menuItem.id
+                })
+            }
+        }
     };
 </script>
 <style>
